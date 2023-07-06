@@ -1,0 +1,16 @@
+.wrap {
+  padding: 10px;
+}
+.name {
+  font-size: 14px;
+  & > span {
+    font-weight: bold;
+  }
+
+}
+.body{
+  font-size: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e1e1e1;
+
+}

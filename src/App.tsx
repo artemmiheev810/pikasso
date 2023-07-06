@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import Main from './pages/Main/Main';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Post from "./pages/Post/Post";
+
+export const queryClient = new QueryClient()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={'/'}  element={<Main/>}/>
+                    <Route path={'post/:id'} element={<Post/>}/>
+                </Routes>
+            </BrowserRouter>
+        </QueryClientProvider>
+
+    );
 }
 
 export default App;
